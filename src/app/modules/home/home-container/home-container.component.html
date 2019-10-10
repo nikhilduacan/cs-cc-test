@@ -1,0 +1,16 @@
+<div class="home-container__row">
+    <div class="home-container__column">
+        <app-person-list 
+            (valueChange)= "refreshList()" 
+            [persons]="persons">
+        </app-person-list>
+        <app-person-add-form 
+            (valueChange)= "refreshList()" 
+            *ngIf="!isMaxRecordsAdded">
+        </app-person-add-form>
+        <span class="home-container__max-records-label" *ngIf="isMaxRecordsAdded"> Maximum limit reached.Please delete some to add more record(s) </span>
+    </div>
+    <div class="home-container__column">
+        <app-pie-chart [chartData] ="pieChartData"></app-pie-chart>
+    </div>
+</div>
